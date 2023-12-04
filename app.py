@@ -3,7 +3,7 @@ import streamlit as st
 def main():
     st.title("Software Developer Portfolio")
     
-    col1, col2, col3 = st.columns(3)
+    col1, cols, colss, col2, col3 = st.columns(5)
     
     with col1:
         # make a clickable button named home that reroutes to the home page
