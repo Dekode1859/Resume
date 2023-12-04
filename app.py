@@ -3,13 +3,24 @@ import streamlit as st
 def main():
     st.title("Software Developer Portfolio")
     
-    # Sidebar navigation
-    page = st.sidebar.selectbox("Select a page", ("Project Showcase", "About"))
+    # top bar navigation without a selection dropdown
+    menu = ["Home", "Project Showcase", "About"]
+    choice = st.sidebar.selectbox("Menu", menu)
     
-    if page == "Project Showcase":
+    if choice == "Home":
+        show_home_page()
+    elif choice == "Project Showcase":
         show_project_showcase()
-    elif page == "About":
+    elif choice == "About":
         show_about_page()
+
+def show_home_page():
+    st.header("Home")
+    
+    # Add your home page content here
+    st.write("Welcome to my portfolio!")
+    st.write("I'm a software developer.")
+    st.write("I like to build cool stuff with Python and JavaScript.")
 
 def show_project_showcase():
     st.header("Project Showcase")
