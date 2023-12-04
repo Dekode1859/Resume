@@ -3,16 +3,19 @@ import streamlit as st
 def main():
     st.title("Software Developer Portfolio")
     
-    # top bar navigation without a selection dropdown
-    menu = ["Home", "Project Showcase", "About"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    col1, col2, col3 = st.columns(3)
     
-    if choice == "Home":
-        show_home_page()
-    elif choice == "Project Showcase":
-        show_project_showcase()
-    elif choice == "About":
-        show_about_page()
+    with col1:
+        st.write("Home")
+        
+    with col2:
+        st.write("Project Showcase")
+        
+    with col3:
+        st.write("About")
+    
+    
+    
 
 def show_home_page():
     st.header("Home")
