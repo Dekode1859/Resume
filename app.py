@@ -1,6 +1,8 @@
 import streamlit as st
 
 def main():
+    # set page width
+    st.set_page_config(layout="wide")
     st.title("Hey there!")
     st.subheader("Welcome to my portfolio website!")
     st.text("Feel free to browse around!")
@@ -33,7 +35,7 @@ def main():
     st.text("Telegram: [Telegram](    )")
     st.text("WeChat: [WeChat](    )")
 
-                    
+
     
     
 
