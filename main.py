@@ -13,22 +13,9 @@ from flet import (
     LinearGradient,
     PopupMenuButton,
     PopupMenuItem,)
+import flet_fastapi
 
-from http.server import SimpleHTTPRequestHandler, HTTPServer
-
-class MyHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(301)
-        self.send_header('Location', 'https://dekode1859.github.io/Resume')
-        self.end_headers()
-
-def run(server_class=HTTPServer, handler_class=MyHandler):
-    server_address = ('', 5000)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
-    
-
-def main(page: Page):
+async def  main(page: Page):
     page.title = "Portfolio Website"
     
     def _change_text_color_on_hover(e):
@@ -39,18 +26,18 @@ def main(page: Page):
             e.control.content.color = "#FFFFFF"
             e.control.content.update()
     
-    def on_resize(e):
+    async def on_resize(e):
         # print(page.width)
         if page.width <=350:
             _nav_bar.controls[0].visible = False
-            _nav_bar.update()
+            await _nav_bar.update_async()
             _min_nav.visible = True
-            _min_nav.update()
+            await _min_nav.update_async()
         else:
             _nav_bar.controls[0].visible = True
-            _nav_bar.update()
+            await _nav_bar.update_async()
             _min_nav.visible = False
-            _min_nav.update()
+            await _min_nav.update_async()
     
     _nav_bar = Row(
         alignment="end",
@@ -155,11 +142,12 @@ def main(page: Page):
         content=_main_col,
     )
     
-    page.add(_background)
+    await page.add_async(_background)
     page.on_resize = on_resize
 
 
-if __name__ == "__main__":
-    flet.app(main, view=flet.AppView.WEB_BROWSER, port=5000)
+# if __name__ == "__main__":
+    # flet_fastapi.app(main)
+app = flet_fastapi.app(main)
+    # flet.app(main, view=flet.AppView.WEB_BROWSER, port=5000)
     # redirect local host to public ip
-    run()
