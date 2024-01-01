@@ -39,4 +39,4 @@ jobs:
     #     pytest
     - name: Build App
       run: |
-        python main.py
+        flet main.py
