@@ -144,4 +144,4 @@ def main(page: Page):
     page.add(_background)
     page.on_resize = on_resize
 if __name__ == "__main__":
-    flet.app(target=main, view=flet.AppView.WEB_BROWSER)
+    flet.app(main, view=flet.AppView.WEB_BROWSER)
