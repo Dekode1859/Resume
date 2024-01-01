@@ -1,7 +1,5 @@
-import flet as ft
-
+import flet
 from flet import (
-    flet ,
     Page,
     Column,
     Row,
