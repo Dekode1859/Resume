@@ -19,7 +19,7 @@ from http.server import SimpleHTTPRequestHandler, HTTPServer
 class MyHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         self.send_response(301)
-        self.send_header('Location', 'https://c00ff2fb.resume-8n5.pages.dev')
+        self.send_header('Location', 'https://dekode1859.github.io/Resume')
         self.end_headers()
 
 def run(server_class=HTTPServer, handler_class=MyHandler):
