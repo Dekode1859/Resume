@@ -14,20 +14,6 @@ from flet import (
     PopupMenuButton,
     PopupMenuItem,)
 
-from http.server import SimpleHTTPRequestHandler, HTTPServer
-
-class MyHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(301)
-        self.send_header('Location', 'https://dekode1859.github.io/Resume')
-        self.end_headers()
-
-def run(server_class=HTTPServer, handler_class=MyHandler):
-    server_address = ('', 5000)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
-    
-
 def main(page: Page):
     page.title = "Portfolio Website"
     
@@ -160,6 +146,4 @@ def main(page: Page):
 
 
 if __name__ == "__main__":
-    flet.app(main, view=flet.AppView.WEB_BROWSER, port=5000)
-    # redirect local host to public ip
-    run()
+    flet.app(main, view=flet.AppView.WEB_BROWSER)

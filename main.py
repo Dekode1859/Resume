@@ -148,5 +148,5 @@ async def  main(page: Page):
 
 # if __name__ == "__main__":
     # flet_fastapi.app(main)
-app = flet_fastapi.app(main)
-    # flet.app(main, view=flet.AppView.WEB_BROWSER, port=5000)
+# app = flet_fastapi.app(main)
+    flet.app(main, view=flet.AppView.WEB_BROWSER, port=5000)
