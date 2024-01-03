@@ -145,5 +145,4 @@ def main(page: Page):
     page.on_resize = on_resize
 
 
-if __name__ == "__main__":
-    flet.app(main, view=flet.AppView.WEB_BROWSER)
+flet.app(target=main)
